@@ -22,7 +22,7 @@ class Comments extends Component {
 								</button>
 							</div>
 							<h3 className="name">
-								{comment.name} wrote: (test)
+								{comment.name} wrote:
 							</h3>
 							<div
 								className="body"
