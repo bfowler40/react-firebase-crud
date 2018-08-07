@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Header } from './style.js';
+import { Container, Header } from './commenter.style';
 import Comments from '../comments/comments';
 import Comment from '../comment/comment';
 

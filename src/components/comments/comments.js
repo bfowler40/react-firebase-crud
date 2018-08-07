@@ -1,31 +1,29 @@
 import React, { Component } from 'react';
-
 import AppContext from '../../AppContext';
+import { Comment, Controls, Button, Name, Body } from './comments.style';
 
 class Comments extends Component {
 	render() {
 		const renderComments = (comments, deleteComment) => {
 			return comments.map(comment => {
 				return (
-					<li key={comment.id} className="comment">
-						<div className="controls">
-							<button
-								className="control"
-								onClick={() => deleteComment(comment.id)}>
+					<Comment key={comment.id}>
+						<Controls>
+							<Button onClick={() => deleteComment(comment.id)}>
 								Delete
-							</button>
-						</div>
-						<h3 className="name">{comment.name} wrote:</h3>
-						<div
-							className="body"
+							</Button>
+						</Controls>
+						<Name>{comment.name} wrote:</Name>
+						<Body
 							dangerouslySetInnerHTML={{
 								__html: comment.comment
 							}}
 						/>
-					</li>
+					</Comment>
 				);
 			});
 		};
+
 		return (
 			<AppContext.Consumer>
 				{context => (

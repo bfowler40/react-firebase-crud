@@ -5,6 +5,7 @@ import draftToHtml from 'draftjs-to-html';
 
 import AppContext from '../../AppContext';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import { Title, Form, Input, Button } from './comment.style';
 
 class Comments extends Component {
 	constructor() {
@@ -77,8 +78,9 @@ class Comments extends Component {
 			<AppContext.Consumer>
 				{context => (
 					<React.Fragment>
-						<form onSubmit={this.handleSubmit(context.addComment)}>
-							<input
+						<Title>Leave a coment here: </Title>
+						<Form onSubmit={this.handleSubmit(context.addComment)}>
+							<Input
 								type="text"
 								name="name"
 								className="input"
@@ -95,8 +97,8 @@ class Comments extends Component {
 								wrapperClassName="wrapper"
 								placeholder="Leave your comment..."
 							/>
-							<button className="button">Add comment</button>
-						</form>
+							<Button className="button">Add comment</Button>
+						</Form>
 					</React.Fragment>
 				)}
 			</AppContext.Consumer>

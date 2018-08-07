@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import AppContext from './AppContext';
-import firebase from './firebase.js';
+import firebase from './firebase';
 
 /**
  * Format the comments from firebase
- * 
- * @param {object} comments 
+ *
+ * @param {object} comments
  * @return {array}
  */
-const formatComments = (comments) => {
+const formatComments = comments => {
 	const allComments = [];
 
 	for (let comment in comments) {
@@ -35,7 +35,7 @@ class AppProvider extends Component {
 
 	/**
 	 * Add comment to Firebase
-	 * 
+	 *
 	 * @param {string} name
 	 * @param {string} comment
 	 * @return {void}
@@ -43,12 +43,12 @@ class AppProvider extends Component {
 	addComment(name, comment) {
 		const comments = firebase.database().ref('comments');
 
-		comments.push({ name, comment});
+		comments.push({ name, comment });
 	}
 
 	/**
 	 * Remove comment from firebase
-	 * 
+	 *
 	 * @param {number} id
 	 * @return {void}
 	 */
@@ -57,6 +57,7 @@ class AppProvider extends Component {
 
 		commentRef.remove();
 	}
+
 	componentDidMount() {
 		const comments = firebase.database().ref('comments');
 
@@ -69,6 +70,7 @@ class AppProvider extends Component {
 			});
 		});
 	}
+
 	render() {
 		return (
 			<AppContext.Provider
