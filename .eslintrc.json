@@ -17,7 +17,8 @@
 	"parserOptions": {
 		"sourceType": "module",
 		"ecmaFeatures": {
-			"experimentalObjectRestSpread": true
+			"experimentalObjectRestSpread": true,
+			"experimentalDecorators": true
 		}
 	},
 	"rules": {
